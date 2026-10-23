@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário Infantil - Feed do Pai</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- CABEÇALHO -->
+    <header>
+        <div class="user-info">
+            <div class="avatar">👦</div>
+            <div>
+                <div class="title" id="nome-aluno">João Silva</div>
+                <div class="subtitle">Maternal II • Creche Vera Cruz</div>
+            </div>
+        </div>
+        <a href="index.html" class="btn-voltar">Sair</a>
+    </header>
+
+    <!-- CARD 1: ROTINA DIÁRIA -->
+    <div class="card-rotina">
+        <h3>🌀 Rotina Diária</h3>
+        
+        <!-- Entrada e Saída -->
+        <div class="info-grid">
+            <div class="info-box">
+                <span>Horário Entrada</span>
+                <strong id="feed-entrada">08:30</strong>
+            </div>
+            <div class="info-box">
+                <span>Horário Saída</span>
+                <strong id="feed-saida">16:45</strong>
+            </div>
+        </div>
+
+        <div class="info-box" style="margin-top: 8px;">
+            <span>Entregue a</span>
+            <strong id="feed-responsavel">Pai (João Silva)</strong>
+        </div>
+
+        <!-- Alimentação e Cochilo -->
+        <div class="info-grid" style="margin-top: 8px;">
+            <div class="info-box">
+                <span>Alimentação</span>
+                <strong>Comeu Tudo</strong>
+            </div>
+            <div class="info-box">
+                <span>Cochilo</span>
+                <strong>13:00 às 14:30</strong>
+            </div>
+        </div>
+
+        <!-- Higiene e Disposição -->
+        <div class="info-grid" style="margin-top: 8px;">
+            <div class="info-box">
+                <span>Higiene</span>
+                <strong>2 Trocas de Fralda</strong>
+            </div>
+            <div class="info-box">
+                <span>Disposição</span>
+                <strong>Muito Animado</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- CARD 2: EMENTA DO DIA -->
+    <div class="card-rotina" style="margin-top: 15px;">
+        <h3>🍲 Ementa do Dia</h3>
+        <div class="info-grid" style="margin-top: 10px;">
+            <div class="info-box">
+                <span>Sopa</span>
+                <strong id="feed-sopa">Creme de Legumes</strong>
+            </div>
+            <div class="info-box">
+                <span>Prato Principal</span>
+                <strong id="feed-prato">Peixe Cozido com Batata</strong>
+            </div>
+        </div>
+        <div class="info-box" style="margin-top: 8px;">
+            <span>Lanche da Tarde</span>
+            <strong id="feed-lanche">Pão com Queijo e Maçã</strong>
+        </div>
+    </div>
+<!-- CARD DE SAÚDE E MEDICAMENTOS -->
+<div class="card-rotina" style="margin-top: 15px;">
+    <h3>💊 Saúde e Medicamentos</h3>
+    
+    <div class="info-box" style="margin-top: 8px;">
+        <span>Estado Geral de Saúde</span>
+        <strong id="feed-saida-baixa">🟢 Frequência Normal</strong>
+    </div>
+
+    <div class="info-grid" style="margin-top: 8px;">
+        <div class="info-box">
+            <span>Medicamento</span>
+            <strong id="feed-med-nome">Paracetamol (Ben-u-ron)</strong>
+        </div>
+        <div class="info-box">
+            <span>Horário da Toma</span>
+            <strong id="feed-med-hora">14:00</strong>
+        </div>
+    </div>
+
+    <div class="info-box" style="margin-top: 8px; background-color: #f8f9fa;">
+        <span>Registo de Toma</span>
+        <strong id="feed-med-status" style="color: #27ae60;">✅ Tomou a medicação</strong>
+    </div>
+</div>
+   <!-- CARD 3: ATIVIDADE DO DIA -->
+        <div class="card-rotina" style="margin-top: 15px;">
+            <h3>🎨 Atividade do Dia</h3>
+            
+            <p id="descricao-atividade" style="margin-top: 10px; color: #444; line-height: 1.5;">
+                Sem atividade registada hoje.
+            </p>
+
+            <!-- CONTAINER DA FOTO COM DOWNLOAD -->
+            <div id="container-foto" style="display: none; text-align: center; margin-top: 15px;">
+                <img id="foto-atividade" src="" alt="Foto da Atividade" style="max-width: 100%; border-radius: 8px;">
+                <br>
+                <a id="btn-download-foto" download="foto-atividade.jpg" style="display: inline-block; margin-top: 8px; padding: 8px 16px; background-color: #3498db; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 0.85rem;">
+                    📸 Descarregar / Baixar Foto
+                </a>
+            </div>
+
+            <!-- CONTAINER DO VÍDEO COM DOWNLOAD -->
+            <div id="container-video" style="display: none; margin-top: 15px; text-align: center;">
+                <p style="font-weight: bold; text-align: left; margin-bottom: 6px; color: #333;">📹 Vídeo da Atividade:</p>
+                
+                <video id="video-atividade" controls playsinline style="width: 100%; max-height: 280px; border-radius: 8px; background-color: #000;">
+                    O seu navegador não suporta a reprodução de vídeo.
+                </video>
+
+                <br>
+                <a id="btn-download-video" download="video-atividade.mp4" style="display: inline-block; margin-top: 10px; padding: 8px 16px; background-color: #27ae60; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 0.85rem;">
+                    📥 Descarregar / Baixar Vídeo
+                </a>
+            </div>
+        </div>
+
+       <!-- CARD 4: RECADOS E CONFIRMAÇÃO -->
+<div class="card-rotina" style="margin-top: 15px;">
+    <h3>📩 Recado Importante</h3>
+    
+    <p id="feed-recado-texto" style="margin-top: 10px; font-weight: bold; color: #333;">
+        Nenhum recado para hoje.
+    </p>
+
+    <!-- Botões de Decisão do Pai -->
+    <div id="box-botoes-confirmacao" style="display: flex; gap: 10px; margin-top: 15px;">
+        <button id="btn-autorizar" onclick="responderRecado(true)" style="flex: 1; padding: 12px; background-color: #27ae60; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+            ✓ Confirmar / Autorizar
+        </button>
+        <button id="btn-nao-autorizar" onclick="responderRecado(false)" style="flex: 1; padding: 12px; background-color: #e74c3c; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+            ✕ Não Autorizo
+        </button>
+    </div>
+
+    <!-- Mensagem de Feedback no Feed do Pai -->
+    <div id="status-confirmacao" style="display: none; padding: 10px; border-radius: 8px; text-align: center; font-weight: bold; margin-top: 15px;"></div>
+
+    <!-- NOTA EM DESTAQUE -->
+    <div class="observacao-box" style="margin-top: 15px; padding: 10px; background-color: #fff9db; border-left: 4px solid #f1c40f; border-radius: 4px; color: #555;">
+        📌 <strong id="feed-observacoes-texto">Nota do Professor: Sem notas adicionais.</strong>
+    </div>
+</div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

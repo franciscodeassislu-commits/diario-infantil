@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário Infantil - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+
+    <div class="login-card">
+        <div class="logo">🧸 Diário Infantil</div>
+        <p class="subtitle">Acompanhe a rotina da creche em tempo real</p>
+
+        <form>
+            <div class="form-group">
+                <label for="perfil">Quem está acessando?</label>
+                <select id="perfil">
+                    <option value="pai">Pai / Responsável</option>
+                    <option value="professor">Professor / Gestão</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="btn-submit">Entrar no Aplicativo</button>
+        </form>
+    </div>
+    <!-- LINK PARA O SEU ARQUIVO JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>

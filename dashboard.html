@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário Infantil - Painel do Professor</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header>
+            <div class="user-info">
+                <div class="avatar">👩‍🏫</div>
+                <div>
+                    <div class="title">Prof.ª Ana Maria</div>
+                    <div class="subtitle">Maternal II • Creche Pequenos Passos</div>
+                </div>
+            </div>
+            <a href="index.html" class="btn-voltar">Sair</a>
+        </header>
+
+        <!-- Formulário de Lançamento Diário -->
+        <div class="card-rotina">
+            <h3>📝 Registrar Rotina do Aluno</h3>
+
+            <form class="form-dashboard" style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
+                <!-- ALERTA DE RESPOSTA DO PAI NO PAINEL DO PROFESSOR -->
+<div id="alerta-resposta-pai" style="display: none; padding: 12px; margin-bottom: 15px; border-radius: 8px; font-weight: bold; text-align: center;"></div>
+                <div>
+                    <label>Selecionar Aluno:</label>
+                    <select id="aluno-select">
+                        <option value="1">João Silva</option>
+                        <option value="2">Maria Oliveira</option>
+                        <option value="3">Pedro Santos</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Alimentação:</label>
+                    <select id="alimentacao">
+                        <option>Comeu Tudo</option>
+                        <option>Comeu Parcialmente</option>
+                        <option>Recusou a Refeição</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Cochilo / Sono:</label>
+                    <input type="text" id="cochilo" placeholder="Ex: 13:00 às 14:30" value="13:00 às 14:30">
+                </div>
+                <!-- NOVOS CAMPOS: REGISTO DE ENTRADA E SAÍDA -->
+                <div style="display: flex; gap: 10px;">
+                    <div style="flex: 1;">
+                        <label>Entrada:</label>
+                        <input type="time" id="hora-entrada" value="08:30">
+                    </div>
+                    <div style="flex: 1;">
+                        <label>Saída:</label>
+                        <input type="time" id="hora-saida" value="16:45">
+                    </div>
+                </div>
+                <!-- NOVOS CAMPOS: HIGIENE E DISPOSIÇÃO -->
+                <div style="display: flex; gap: 10px; margin-top: 10px; align-items: flex-end;">
+                    <div style="flex: 1;">
+                        <label>Higiene:</label>
+                        <select id="higiene-select">
+                            <option value="Sem Trocas">Sem Trocas</option>
+                            <option value="1 Troca de Fralda">1 Troca de Fralda</option>
+                            <option value="2 Trocas de Fralda" selected>2 Trocas de Fralda</option>
+                            <option value="3+ Trocas / Banho">3+ Trocas / Banho</option>
+                            <option value="Uso do Uno / Sanita">Uso do Uno / Sanita</option>
+                        </select>
+                    </div>
+                    <div style="flex: 1;">
+                        <label>Disposição:</label>
+                        <select id="disposicao-select">
+                            <option value="Muito Animado" selected>Muito Animado</option>
+                            <option value="Tranquilo / Calmo">Tranquilo / Calmo</option>
+                            <option value="Choroso / Sensível">Choroso / Sensível</option>
+                            <option value="Cansado / Sem Energia">Cansado / Sem Energia</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label>Entregue / Entregue a:</label>
+                    <input type="text" id="responsavel-busca" placeholder="Ex: Pai (João Silva), Avó Maria..."
+                        value="Pai (João Silva)">
+                </div>
+                               
+                <!-- BLOCO: ATIVIDADE DO DIA (DESCRIÇÃO E MÍDIAS) -->
+                <div style="margin-top: 15px;">
+                    <label style="font-weight: bold; display: block; margin-bottom: 6px;">Descrição da Atividade do
+                        Dia:</label>
+                    <textarea id="atividade-texto" rows="3"
+                        style="width: 100%; box-sizing: border-box; padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-family: inherit;"
+                        placeholder="Ex: Hoje fizemos uma roda de leitura e pintamos desenhos com tinta guache..."></textarea>
+                </div>
+
+                <div style="display: flex; gap: 15px; margin-top: 15px; align-items: flex-start;">
+                    <div style="flex: 1;">
+                        <label style="font-weight: bold; display: block; margin-bottom: 6px;">📸 Foto da
+                            Atividade:</label>
+                        <div style="background-color: #fff; padding: 8px; border: 1px solid #ccc; border-radius: 8px;">
+                            <input type="file" id="foto-input" accept="image/*" style="width: 100%;">
+                        </div>
+                    </div>
+
+                    <div style="flex: 1;">
+                        <label style="font-weight: bold; display: block; margin-bottom: 6px;">🎥 Vídeo (Até 3
+                            min):</label>
+                        <div style="background-color: #fff; padding: 8px; border: 1px solid #ccc; border-radius: 8px;">
+                            <input type="file" id="video-input" accept="video/*" style="width: 100%;">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label>Nota do Professor / Observação:</label>
+                    <input type="text" id="observacao" placeholder="Ex: Lembrar de trazer roupa sobressalente...">
+                </div>
+                <!-- NOVO BLOCO: EMENTA DO DIA -->
+                <div style="margin-top: 15px; border-top: 1px dashed #e1e8ed; padding-top: 10px;">
+                    <label style="font-weight: bold; color: #333;">🍲 Ementa / Refeições do Dia:</label>
+
+                    <div style="display: flex; gap: 10px; margin-top: 8px;">
+                        <div style="flex: 1;">
+                            <label>Sopa:</label>
+                            <input type="text" id="ementa-sopa" placeholder="Ex: Creme de Cenoura"
+                                value="Creme de Legumes">
+                        </div>
+                        <div style="flex: 1;">
+                            <label>Prato Principal:</label>
+                            <input type="text" id="ementa-prato" placeholder="Ex: Arroz de Frango"
+                                value="Peixe Cozido com Batata e Brocolos">
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 8px;">
+                        <label>Lanche:</label>
+                        <input type="text" id="ementa-lanche" placeholder="Ex: Fruta e Pão com Manteiga"
+                            value="Pão com Queijo e Maçã">
+                    </div>
+                    <!-- BLOCO DE SAÚDE E MEDICAMENTOS -->
+                    <div style="margin-top: 15px; border-top: 1px dashed #e1e8ed; padding-top: 10px;">
+                        <label style="font-weight: bold; color: #d32f2f;">💊 Saúde e Medicamentos do Dia:</label>
+
+                        <div style="display: flex; gap: 10px; margin-top: 8px;">
+                            <div style="flex: 1;">
+                                <label>Medicamento:</label>
+                                <input type="text" id="med-nome" placeholder="Ex: Amoxicilina, Paracetamol..."
+                                    value="Paracetamol (Ben-u-ron)">
+                            </div>
+                            <div style="flex: 1;">
+                                <label>Horário Previsto:</label>
+                                <input type="time" id="med-hora" value="14:00">
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 10px; margin-top: 8px;">
+                            <div style="flex: 1;">
+                                <label>Estado da Toma:</label>
+                                <select id="med-status">
+                                    <option value="Tomou a medicação" selected>✅ Tomou a medicação</option>
+                                    <option value="Não necessitou">⚪ Não necessitou</option>
+                                    <option value="Pendente / A aguardar">⏳ Pendente / A aguardar</option>
+                                </select>
+                            </div>
+                            <!-- NOVO BLOCO: VÍDEO DA ATIVIDADE -->
+
+                            <div style="flex: 1;">
+                                <label>Estado de Saúde:</label>
+                                <select id="saude-baixa">
+                                    <option value="🟢 Frequência Normal" selected>🟢 Frequência Normal</option>
+                                    <option value="🟡 Em casa (Aviso de Febre)">🟡 Em casa (Aviso de Febre)</option>
+                                    <option value="🔴 Em Baixa Médica">🔴 Em Baixa Médica</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- NOVO BLOCO: RECADOS E AUTORIZAÇÕES -->
+                    <div style="margin-top: 15px; border-top: 1px dashed #e1e8ed; padding-top: 10px;">
+                        <label style="font-weight: bold; color: #333;">📌 Recado / Evento para Confirmação dos
+                            Pais:</label>
+                        <input type="text" id="recado-texto"
+                            placeholder="Ex: Autoriza a participação no piquinique de sexta-feira?"
+                            value="Autoriza a participação no piquinique de sexta-feira?">
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit" style="margin-top: 5px;">Salvar e Enviar ao Pai</button>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
